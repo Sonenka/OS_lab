@@ -13,9 +13,9 @@ fi
 
 # Check the number of command-line arguments
 if [ "$#" -ne 3 ]; then
-  read -r prefix
-  read -r start
-  read -r end
+  read -p "Enter login prefix: " prefix
+  read -p "Enter start number: " start
+  read -p "Enter end number: " end
 else
   prefix=$1
   start=$2
@@ -23,7 +23,7 @@ else
 fi
 
 # Check the correctness of the ordinal numbers
-if [ "$end" -lt "$start" ]; then
+if [ $end -lt $start ]; then
   echo "Error: end_number must be greater than or equal to start_number."
   exit 1
 fi
