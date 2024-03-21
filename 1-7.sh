@@ -13,14 +13,14 @@ fi
 
 # Check the number of command-line arguments
 if [ "$#" -ne 3 ]; then
-  echo "Error: Incorrect number of arguments."
-  display_help
-  exit 1
+  read -p "Enter login prefix: " prefix
+  read -p "Enter start number: " start
+  read -p "Enter end number: " end
+else
+  prefix=$1
+  start=$2
+  end=$3
 fi
-
-prefix=$1
-start=$2
-end=$3
 
 # Check the correctness of the ordinal numbers
 if [ $end -lt $start ]; then
