@@ -13,9 +13,10 @@ fi
 
 # Check the number of command-line arguments
 if [ "$#" -ne 3 ]; then
-  read -p "Enter login prefix: " prefix
-  read -p "Enter start number: " start
-  read -p "Enter end number: " end
+  # Read input from file if arguments are not provided
+  while read -r prefix start end; do
+    break
+  done <<< $(cat)
 else
   prefix=$1
   start=$2
